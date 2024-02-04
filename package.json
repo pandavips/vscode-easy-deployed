@@ -1,0 +1,67 @@
+{
+  "name": "i-like-deployed",
+  "displayName": "I-Like-Deployed",
+  "description": "make deployment simple",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "deployed.start",
+        "title": "deployed:start"
+      },
+      {
+        "command": "deployed.quick",
+        "title": "deployed:quick-start"
+      },
+      {
+        "command": "deployed.config",
+        "title": "deployed:config"
+      },
+      {
+        "command": "deployed.analyze",
+        "title": "deployed:analyze"
+      }
+    ]
+  },
+  "views": {
+    "explorer": [
+      {
+        "id": "easy-deployed",
+        "name": "easy-deployed",
+        "icon": "images/favicon.ico"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "mysql2": "^3.9.1",
+    "playwright": "^1.41.1",
+    "simple-git": "^3.22.0"
+  }
+}
